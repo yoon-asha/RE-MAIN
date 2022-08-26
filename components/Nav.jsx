@@ -11,6 +11,7 @@ import SearchIcon from "@mui/icons-material/Search";
 // import { Search } from "@mui/icons-material";
 import Image from "next/image";
 import Logo from "../public/remain.png";
+import Link from "next/link";
 
 const Nav = () => {
   const Search = styled("div")(({ theme }) => ({
@@ -34,14 +35,15 @@ const Nav = () => {
       <AppBar position="sticky" sx={{ bgcolor: "#fff" }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Box sx={{ position: "relative", 
-          top: -40, height: 40}}>
+          top: -40, height: 40, cursor: 'pointer'}} >
+            <Link href='/'>
             <Image
               src={Logo}
               width={160}
               // height={45}
               // objectFit='none'
               objectFit="contain"
-            />
+            /></Link>
           </Box>
 
           {/* <Typography
@@ -58,9 +60,14 @@ const Nav = () => {
             {/* </SearchIconWrapper> */}
           </Search>
 
-          <Button variant="outlined" color="success">
+          {/* <Button variant="outlined" color="success">
             Login
+          </Button> */}
+          <Link href='/dashboard'>
+          <Button color="success">
+            Dashboard
           </Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </>

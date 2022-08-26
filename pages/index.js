@@ -5,6 +5,7 @@ import Head from "next/head";
 
 import Nav from "../components/Nav";
 import Main from "../components/Main";
+import Explore from "../components/Explore";
 
 export default function Home() {
   return (
@@ -24,13 +25,15 @@ export default function Home() {
 
       {/* 내비게이션 */}
       <CssBaseline />
-      <Nav />
 
       {/* 메인 */}
       <main className={styles.main}>
-      <Main />
+        <Main />
       </main>
 
+      {/* <main className={styles.main}> */}
+      <Explore />
+      {/* </main> */}
 
       {/* 푸터 */}
       <footer className={styles.footer}>

@@ -25,7 +25,7 @@ const Main = () => {
           width: { xs: "100vw", sm: "80vw", md: '50vw' },
           height: '300px',
           position: 'absolute',
-          top: '60%',
+          top: '55%',
           pt: 1,
           pl: 5, pr:5
         }}>
