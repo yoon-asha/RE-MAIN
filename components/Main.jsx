@@ -8,7 +8,7 @@ const Main = () => {
       <Box
         sx={{
           width: { xs: '100vw', sm: '80vw' },
-          height: '70vh',
+          height: '50vh',
           overflow: 'hidden',
           position: 'relative',
         }}
@@ -23,16 +23,18 @@ const Main = () => {
       <Box
         sx={{
           bgcolor: '#fff',
-          width: { xs: '100vw', sm: '80vw', md: '50vw' },
-          height: '300px',
+          width: { xs: '100vw', sm: '80vw', md: '60vw', lg: '50vw' },
+          height: '200px',
           position: 'absolute',
-          top: '55%',
-          pt: 1,
+          top: '45%',
+          pt: 2,
           pl: 5,
           pr: 5,
+          textAlign: 'center',
+          borderRadius: 2
         }}
       >
-        <Typography>LOGO</Typography>
+        <Image src={Logo} width={264} height={59} />
         <Typography>일회용컵 회수 플랫폼 리:메인</Typography>
       </Box>
     </>
