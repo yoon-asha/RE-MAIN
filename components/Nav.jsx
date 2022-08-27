@@ -31,7 +31,7 @@ const Nav = () => {
   return (
     <>
       {/* <CssBaseline /> */}
-      <AppBar position='sticky' sx={{ bgcolor: '#fff' }}>
+      <AppBar position='sticky' sx={{ bgcolor: '#fff', boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
           <Box
             sx={{

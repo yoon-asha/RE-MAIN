@@ -29,8 +29,7 @@ const Main = () => {
           position: 'absolute',
           top: '45%',
           pt: 2,
-          pl: 5,
-          pr: 5,
+          px: 5,
           textAlign: 'center',
           borderRadius: 2
         }}
