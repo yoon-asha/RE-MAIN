@@ -1,14 +1,11 @@
-import { Box, Container, Paper, Typography } from '@mui/material';
+import { Box, Button, Container, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import Image from 'next/image';
 
-const Explore = () => {
+const Selling = () => {
   return (
     <>
       <Container>
-        <Typography variant='h4' fontWeight={600} >NFT Market</Typography>
-        <Typography>NFT를 구매하고 프리퀀시를 모으세요</Typography>
-
         {/* <Box sx={{bgcolor: '#ccc', height: '100vh'}} > NFT list</Box> */}
         <Box my={5}>
           <Grid
@@ -26,7 +23,7 @@ const Explore = () => {
                 sx={{ cursor: 'pointer' }}
                 // columnSpacing={5}
               >
-                <Paper sx={{ width: '100%', height: '100%', p: 3 }}>
+                <Paper sx={{ width: '100%', height: '100%', p: 2.5 }}>
                   <Box
                     sx={{ bgcolor: '#ccc', width: '100%', height: '80%' }}
                   ></Box>
@@ -45,9 +42,17 @@ const Explore = () => {
             ))}
           </Grid>
         </Box>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around' }}>
+          <Button variant='outlined' sx={{ px: 3 }}>
+            판매 수량
+          </Button>
+          <Button variant='contained' sx={{ px: 3 }}>
+            판매 등록
+          </Button>
+        </Box>
       </Container>
     </>
   );
 };
 
-export default Explore;
+export default Selling;
