@@ -6,7 +6,7 @@ const Explore = () => {
   return (
     <>
       <Container>
-        <Typography variant='h4' fontWeight={600} >NFT Market</Typography>
+        <Typography variant='h5' fontWeight={600} >NFT Market</Typography>
         <Typography>NFT를 구매하고 프리퀀시를 모으세요</Typography>
 
         {/* <Box sx={{bgcolor: '#ccc', height: '100vh'}} > NFT list</Box> */}
@@ -28,11 +28,16 @@ const Explore = () => {
               >
                 <Paper sx={{ width: '100%', height: '100%', p: 3 }}>
                   <Box
-                    sx={{ bgcolor: '#ccc', width: '100%', height: '80%' }}
-                  ></Box>
+                    sx={{
+                      bgcolor: '#ccc', width: '100%', height: '80%',
+                      backgroundImage: `url('https://source.unsplash.com/random/${index}')`,
+                      // backgroundImage: `url("https://source.unsplash.com/collection/${index}")`
+                    }}
+                  >
+                  </Box>
                   {/* <Button>xs=2</Button> */}
                   <Typography>item.name</Typography>
-                  <Box sx={{ display: 'flex', mb: 20 }}>
+                  <Box sx={{ display: 'flex', mb: {xs: 45, sm: 25, md: 30} }}>
                     <Typography variant='p' fontSize='0.8em'>
                       item.storeName
                     </Typography>

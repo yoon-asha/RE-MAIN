@@ -24,12 +24,17 @@ const Selling = () => {
                 // columnSpacing={5}
               >
                 <Paper sx={{ width: '100%', height: '100%', p: 2.5 }}>
-                  <Box
-                    sx={{ bgcolor: '#ccc', width: '100%', height: '80%' }}
+                  
+                <Box
+                    sx={{
+                      bgcolor: '#ccc', width: '100%', height: '80%',
+                      // backgroundImage: `url('https://source.unsplash.com/random/${index}')`,
+                      backgroundImage: `url("https://source.unsplash.com/collection/${index}")`
+                    }}
                   ></Box>
                   {/* <Button>xs=2</Button> */}
                   <Typography>item.name</Typography>
-                  <Box sx={{ display: 'flex', mb: 20 }}>
+                  <Box sx={{ display: 'flex', mb: {xs: 45, sm: 25, md: 30} }}>
                     <Typography variant='p' fontSize='0.8em'>
                       item.storeName
                     </Typography>

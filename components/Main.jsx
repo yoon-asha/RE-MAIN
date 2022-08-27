@@ -15,7 +15,10 @@ const Main = () => {
         }}
       >
         <Image
-          src='https://cdn.pixabay.com/photo/2019/06/22/08/10/leaves-4291098_1280.jpg'
+          // src='https://cdn.pixabay.com/photo/2019/06/22/08/10/leaves-4291098_1280.jpg'
+          // src='https://images.pexels.com/photos/3264752/pexels-photo-3264752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          src='https://images.pexels.com/photos/12708900/pexels-photo-12708900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+          // src='https://images.pexels.com/photos/6597436/pexels-photo-6597436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
           layout='fill'
           objectFit='cover'
         />
@@ -30,6 +33,7 @@ const Main = () => {
           top: '45%',
           pt: 2,
           px: 5,
+          pr: 5,
           textAlign: 'center',
           borderRadius: 2
         }}
