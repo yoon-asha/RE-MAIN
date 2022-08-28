@@ -5,8 +5,8 @@ const MyPage = () => {
     <>
       <Box>
         <Typography>보유 잔고</Typography>
+        <Typography>0000.00 KLAY</Typography>
       </Box>
-      <Typography>잔고</Typography>
       <Box>
         <Typography>보유 교환권</Typography>
       </Box>
