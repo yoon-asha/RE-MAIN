@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NFT_CONTRACT_ADDRESS, MARKET_CONTRACT_ADDRESS } from '../contract/contract.cypress';
+import { NFT_CONTRACT_ADDRESS, MARKET_CONTRACT_ADDRESS } from '../contract/contract.cypress'
 
 const A2P_API_PREPARE_URL = 'https://a2a-api.klipwallet.com/v2/a2a/prepare';
 const APP_NAME = 'KLAY_MARKET';
@@ -22,8 +22,9 @@ export const getAddress = (setQrvalue, callback) => {
         type: "auth"
     }
     ).then((response) => {
-        // const request_key = response.data.request_key;
-        const { request_key } = response.data;
+        const request_key = response.data.request_key;
+        // const { request_key } = response.data;
+        console.log('response>>>' , response.data)
         // if (isMobile) {
         //     window.location.href = getKlipAccessUrl("android", request_key);
         // } else {
@@ -37,8 +38,8 @@ export const getAddress = (setQrvalue, callback) => {
                 .then((res) => {
                     if (res.data.result) {
                         console.log(`[Result] ${JSON.stringify(res.data.result)}`);
-                        callback(res.data.result.klaytn_address);
                         clearInterval(timerId);
+                        callback(res.data.result.klaytn_address);
                         setQrvalue("DEFAULT");
                     }
                 });
