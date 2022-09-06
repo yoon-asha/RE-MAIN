@@ -1,16 +1,22 @@
-import { Autocomplete, Box, TextField } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2';
+import { Autocomplete, Box, TextField, Grid } from '@mui/material';
+// import Grid from '@mui/material/Unstable_Grid2';
 import { useState } from 'react';
 
 const circle = {
   bgcolor: '#fff',
-  width: '50px',
-  height: '50px',
+  // width: 70,
+  // height: 70,
+  m: 1,
+  p: 4,
   border: '1px solid #ccc',
   borderRadius: '100%',
+  display: 'grid',
+  placeItems: 'center',
+  // justifyContent: 'center',
+  // alignItems: 'center'
 };
 
-const dummy = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Frequency = () => {
   const [storeName, setStoreName] = useState(options[0]);
@@ -19,12 +25,25 @@ const Frequency = () => {
   return (
     <>
       <Grid container>
-        <Grid md={8}>
-          {dummy.map((item, index) => {
-            <Box sx={circle} key={index}>
+        <Grid
+          container
+          md={7}
+          bgcolor='aliceblue'
+          mr={5}
+          sx={{
+            p: 2,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            // gridTemplateRows: 'repeat(2, 100px)',
+            // gridTemplateRows: 'auto'
+          }}
+        >
+          {data.map((item, index) => (
+            // {Array.from(Array(10)).map((item, index) => (
+            <Grid sx={circle} key={index}>
               {item}
-            </Box>;
-          })}
+            </Grid>
+          ))}
         </Grid>
         <Grid md={4}>
           <Autocomplete
