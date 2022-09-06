@@ -3,6 +3,7 @@ import { Box, Container, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
 import MyPage from '../components/dashboard/Mypage';
 import Frequency from '../components/dashboard/Frequency';
+import Coupon from '../components/dashboard/Coupon';
 import Selling from '../components/dashboard/Selling';
 
 function TabPanel(props) {
@@ -69,7 +70,7 @@ const Dashboard = () => {
           <Frequency />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          음료 쿠폰
+          <Coupon />
         </TabPanel>
         <TabPanel value={value} index={3}>
           <Selling />

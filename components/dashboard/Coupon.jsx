@@ -18,7 +18,7 @@ const circle = {
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const Frequency = () => {
+const Coupon = () => {
   const [storeName, setStoreName] = useState(options[0]);
   // const [inputValue, setInputValue] = useState("");
 
@@ -76,7 +76,7 @@ const Frequency = () => {
   );
 };
 
-export default Frequency;
+export default Coupon;
 
 const options = [
   { label: '스타벅스', id: 1 },
