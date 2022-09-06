@@ -1,4 +1,4 @@
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography, Container, Button } from '@mui/material';
 import QRCode from "qrcode.react";
 import { fetchCardsOf, getBalance, readCount, setCount } from "../pages/api/UseCaver";
 import { useState } from "react";
@@ -19,7 +19,16 @@ function Login() {
       const _balance = await getBalance(address);
       setMyBalance(_balance);
     });
+    // const _balance = getBalance(address);
+    // setMyBalance(_balance);
   }
+
+
+  // const _balance = () => {
+  //     getBalance(myAddress)
+  //     setMyBalance(_balance);
+  //     console.log('balance>>>'+myBalance)
+  // }
 
   const style = {
     position: 'absolute',
@@ -40,7 +49,6 @@ function Login() {
           Klip 지갑 연결하기
         </Typography>
 
-        <Typography id='modal-modal-description' variant='subtitle1' component='h4'>
           <Container
             style={{
               backgroundColor: "white",
@@ -52,7 +60,14 @@ function Login() {
             <br />
             <br />
           </Container>
-        </Typography>
+        <Button onClick={(async () => {
+      const _balance = await getBalance(myAddress)
+      setMyBalance(_balance);
+      console.log('balance>>>'+myBalance)
+          })} >잔액 조회</Button>
+        
+        <Typography id='modal-modal-description' variant='subtitle1' component='h4'>{myBalance}</Typography>
+        <Typography id='modal-modal-description' variant='subtitle1' component='h4'>내 지갑 주소 {myAddress}</Typography>
       </Box>
     </>
   );
