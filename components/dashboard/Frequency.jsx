@@ -1,5 +1,22 @@
-import { Autocomplete, Box, TextField } from '@mui/material';
+import { Autocomplete, Box, TextField, Grid } from '@mui/material';
+// import Grid from '@mui/material/Unstable_Grid2';
 import { useState } from 'react';
+
+const circle = {
+  bgcolor: '#fff',
+  // width: 70,
+  // height: 70,
+  m: 1,
+  p: 4,
+  border: '1px solid #ccc',
+  borderRadius: '100%',
+  display: 'grid',
+  placeItems: 'center',
+  // justifyContent: 'center',
+  // alignItems: 'center'
+};
+
+const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Frequency = () => {
   const [storeName, setStoreName] = useState(options[0]);
@@ -7,30 +24,51 @@ const Frequency = () => {
 
   return (
     <>
-      <Box>프리퀀시들</Box>
-      <Box>
-        <Autocomplete
-          // disablePortal
-          id='store'
-          value={storeName}
-          onChange={(event, newValue) => {
-            setStoreName(newValue);
+      <Grid container>
+        <Grid
+          container
+          md={7}
+          bgcolor='aliceblue'
+          mr={5}
+          sx={{
+            p: 2,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, 1fr)',
+            // gridTemplateRows: 'repeat(2, 100px)',
+            // gridTemplateRows: 'auto'
           }}
-          // inputValue={inputValue}
-          // onInputChange={(event, newInputValue) => {
-          //   setInputValue(newInputValue)
-          // }}
-          options={options}
-          // sx={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              // label="Cafe"
-            />
-          )}
-        />
-        <Box>교환할 수 있는 프리퀀시</Box>
-      </Box>
+        >
+          {data.map((item, index) => (
+            // {Array.from(Array(10)).map((item, index) => (
+            <Grid sx={circle} key={index}>
+              {item}
+            </Grid>
+          ))}
+        </Grid>
+        <Grid md={4}>
+          <Autocomplete
+            // disablePortal
+            id='store'
+            value={storeName}
+            onChange={(event, newValue) => {
+              setStoreName(newValue);
+            }}
+            // inputValue={inputValue}
+            // onInputChange={(event, newInputValue) => {
+            //   setInputValue(newInputValue)
+            // }}
+            options={options}
+            // sx={{ width: 300 }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                // label="Cafe"
+              />
+            )}
+          />
+          <Box>교환할 수 있는 프리퀀시</Box>
+        </Grid>
+      </Grid>
     </>
   );
 };

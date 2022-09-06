@@ -38,7 +38,8 @@ const Main = () => {
           borderRadius: 2
         }}
       >
-        <Image src={Logo} width={264} height={59} />
+        {/* <Image src={Logo} width={264} height={59} /> */}
+        <Image src={Logo} style={{aspectRatio: 1 / 1}} />
         <Typography variant='subtitle1' >일회용컵 회수 플랫폼 리:메인</Typography>
       </Box>
     </>

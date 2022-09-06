@@ -4,6 +4,16 @@ const nextConfig = {
   images: {
     domains: ['cdn.pixabay.com', 'images.pexels.com'],
   },
-};
-
-module.exports = nextConfig;
+  webpack5: true,
+  webpack: (config) => {
+    config.resolve.fallback = {
+      // crypto: false,
+      fs: false,
+      // http: false,
+      // https: false,
+      // stream: false,
+    }
+    return config
+  },
+}
+module.exports = nextConfig

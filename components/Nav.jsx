@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Logo from '../public/remain.png';
 import Link from 'next/link';
 import LoginBtn from './LoginBtn';
+import { getCookie } from '../pages/js/cookie';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState('false');
@@ -63,14 +64,14 @@ const Nav = () => {
           </Search>
 
           {/* Login or Dashboard */}
-          {isLogin === true ? (
+          {isLogin === 'true' ? (
             <Link href='/dashboard'>
               <Button color='success'>Dashboard</Button>
             </Link>
           ) : (
-              <Button color='success' onClick={handleOpen}>
-                Login
-              </Button>
+            <Button color='success' onClick={handleOpen}>
+              Login
+            </Button>
           )}
         </Toolbar>
       </AppBar>
@@ -82,7 +83,7 @@ const Nav = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <LoginBtn />
+        <LoginBtn setOpen={setOpen} setIsLogin={setIsLogin}></LoginBtn>
       </Modal>
     </>
   );

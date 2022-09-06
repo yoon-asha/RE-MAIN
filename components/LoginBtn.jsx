@@ -1,24 +1,38 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Container, Button } from '@mui/material';
 import QRCode from "qrcode.react";
 import { fetchCardsOf, getBalance, readCount, setCount } from "../pages/api/UseCaver";
 import { useState } from "react";
-import { Alert, Button, Card, CardImg, Col, Container, Form, Modal, ModalFooter, ModalHeader, ModalTitle, Nav, Row } from "react-bootstrap";
 import * as KlipAPI from "../pages/api/UseKlip";
+import { getCookie, setCookie } from '../pages/js/cookie';
+
 
 const DEFAULT_QR_CODE = "DEFAULT";
 const DEFAULT_ADDRESS = "0x000000000000000000000000000000";
-function Login() {
+function Login(value) {
   const [myBalance, setMyBalance] = useState("0");
   const [myAddress, setMyAddress] = useState(DEFAULT_ADDRESS);
 
   // UI
   const [qrvalue, setQrvalue] = useState(DEFAULT_QR_CODE);
 
-  const getAddress = () => {
+  const getAddress = async () => {
     KlipAPI.getAddress(setQrvalue, async (address) => {
-      setMyAddress(address);
-      const _balance = await getBalance(address);
-      setMyBalance(_balance);
+      const _balance = await getBalance(address);  //비동기(async) await 
+
+      const expires = new Date();
+
+      expires.setTime(expires.getTime() + 60 * 60 * 24 * 1000);
+
+      const option = {
+        path: '/',
+        expires
+      };
+      setCookie("isLogin", true, option);
+      setCookie("address", address, option);
+      setCookie("balance", _balance, option);
+      value.setOpen(false);
+      value.setIsLogin(getCookie('isLogin'));
+      return value;
     });
   }
 
@@ -41,19 +55,17 @@ function Login() {
           Klip 지갑 연결하기
         </Typography>
 
-        <Typography id='modal-modal-description' variant='subtitle1' component='h4'>
-          <Container
-            style={{
-              backgroundColor: "white",
-              width: 300,
-              height: 300,
-              padding: 20
-            }}>
-            <QRCode value={qrvalue} size={256} style={{ margin: "auto" }} />
-            <br />
-            <br />
-          </Container>
-        </Typography>
+        <Container
+          style={{
+            backgroundColor: "white",
+            width: 300,
+            height: 300,
+            padding: 20
+          }}>
+          <QRCode value={qrvalue} size={256} style={{ margin: "auto" }} />
+          <br />
+          <br />
+        </Container>
       </Box>
     </>
   );
