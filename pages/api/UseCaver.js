@@ -3,8 +3,8 @@ import { ACCESS_KEY_ID, SECRET_ACCESS_KEY, NFT_CONTRACT_ADDRESS, CHAIN_ID } from
 
 const option = {
     headers: [
-      {name: 'Authorization', value: 'Basic ' + Buffer.from(ACCESS_KEY_ID + ':' + SECRET_ACCESS_KEY).toString('base64')},
-      {name: 'x-chain-id', value: CHAIN_ID},
+      {name: 'Authorization', value: 'Basic S0FTSzlDQlAzUlhYMTM0VlIySTdDUVdHOk5CNkdVNkZtTVlJX2d3aHo2UURnSHk3MEpwNE9adnJjdmdjU0tyOWs='},
+      {name: 'x-chain-id', value: '8217'},
     ]
 }
 
