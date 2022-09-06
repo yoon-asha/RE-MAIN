@@ -6,10 +6,16 @@ const nextConfig = {
   },
   webpack5: true,
   webpack: (config) => {
-    config.resolve.fallback = { fs: false }
+    config.resolve.fallback = {
+      crypto: false,
+      fs: false,
+      http: false,
+      https: false,
+      stream: false,
+    };
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
