@@ -28,7 +28,7 @@ const Coupon = () => {
         <Grid
           container
           md={7}
-          bgcolor='aliceblue'
+          bgcolor='beige'
           mr={5}
           sx={{
             p: 2,
