@@ -4,7 +4,7 @@ import { fetchCardsOf, getBalance, readCount, setCount } from "../pages/api/UseC
 import { useState } from "react";
 import * as KlipAPI from "../pages/api/UseKlip";
 
-const DEFAULT_QR_CODE = "DEFAULT";
+const DEFAULT_QR_CODE = "DEFAULT"; 
 const DEFAULT_ADDRESS = "0x000000000000000000000000000000";
 function Login() {
   const [myBalance, setMyBalance] = useState("0");
@@ -13,10 +13,10 @@ function Login() {
   // UI
   const [qrvalue, setQrvalue] = useState(DEFAULT_QR_CODE);
 
-  const getAddress = () => {
-    KlipAPI.getAddress(setQrvalue, async (address) => {
+  const getAddress = async () =>{
+    KlipAPI.getAddress(setQrvalue,async (address)=>{  
       setMyAddress(address);
-      const _balance = await getBalance(address);
+      const _balance = await getBalance(address);  //비동기(async) await 
       setMyBalance(_balance);
     });
     // const _balance = getBalance(address);

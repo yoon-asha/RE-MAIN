@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Caver from 'caver-js'
 import {
   NFT_CONTRACT_ADDRESS,
   MARKET_CONTRACT_ADDRESS,
@@ -27,8 +26,12 @@ export const getAddress = (setQrvalue, callback) => {
     })
     .then((response) => {
       const request_key = response.data.request_key
-      // const { request_key } = response.data;
-      console.log('response>>>', response.data)
+      // const request_key = response.data.request_key;
+      // if (isMobile) {
+      //     window.location.href = getKlipAccessUrl("android", request_key);
+      // } else {
+      //     setQrvalue(getKlipAccessUrl("QR", request_key));
+      // }
       setQrvalue(getKlipAccessUrl('QR', request_key))
       // const qrcode = `https://klipwallet.com/?target=/a2a?request_key=${request_key}`;
       // setQrvalue(qrcode);
@@ -40,8 +43,8 @@ export const getAddress = (setQrvalue, callback) => {
           .then((res) => {
             if (res.data.result) {
               console.log(`[Result] ${JSON.stringify(res.data.result)}`)
-              clearInterval(timerId)
               callback(res.data.result.klaytn_address)
+              clearInterval(timerId)
               setQrvalue('DEFAULT')
             }
           })

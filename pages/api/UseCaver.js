@@ -1,11 +1,10 @@
-import axios from 'axios'
 import Caver from 'caver-js'
 import {
   ACCESS_KEY_ID,
   SECRET_ACCESS_KEY,
   NFT_CONTRACT_ADDRESS,
   CHAIN_ID,
-} from '../contract/index'
+} from '../contract'
 
 const option = {
   headers: [
@@ -31,7 +30,6 @@ export const getBalance = (address) => {
     const balance = caver.utils.convertFromPeb(
       caver.utils.hexToNumberString(response)
     )
-    console.log(`BALANCE: ${balance}`)
     return balance
   })
 }
