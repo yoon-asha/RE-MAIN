@@ -22,8 +22,8 @@ export const getAddress = (setQrvalue, callback) => {
         type: "auth"
     }
     ).then((response) => {
+        const request_key = response.data.request_key;
         // const request_key = response.data.request_key;
-        const { request_key } = response.data;
         // if (isMobile) {
         //     window.location.href = getKlipAccessUrl("android", request_key);
         // } else {
