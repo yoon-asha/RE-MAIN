@@ -4,12 +4,22 @@ const nextConfig = {
   images: {
     domains: ['cdn.pixabay.com', 'images.pexels.com'],
   },
+};
+
+module.exports = {
   webpack5: true,
   webpack: (config) => {
-    config.resolve.fallback = { fs: false }
+    config.resolve.fallback = {
+      crypto: false,
+      fs: false,
+      http: false,
+      https: false,
+      stream: false,
+    };
 
-    return config
+    return config;
   },
-}
-
-module.exports = nextConfig
+  images: {
+    domains: ["images.pexels.com"] // 이곳에 에러에서 hostname 다음 따옴표에 오는 링크를 적으면 된다.
+  }
+};
