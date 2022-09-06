@@ -17,6 +17,14 @@
 //     return config
 //   },
 // }
+// module.exports = nextConfig
+
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    domains: ['cdn.pixabay.com', 'images.pexels.com'],
+  },
+}
 
 module.exports = {
   webpack5: true,
@@ -32,8 +40,6 @@ module.exports = {
     return config
   },
   images: {
-    domains: ['cdn.pixabay.com', 'images.pexels.com'], // 이곳에 에러에서 hostname 다음 따옴표에 오는 링크를 적으면 된다.
+    domains: ['images.pexels.com'], // 이곳에 에러에서 hostname 다음 따옴표에 오는 링크를 적으면 된다.
   },
 }
-
-// module.exports = nextConfig

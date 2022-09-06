@@ -16,6 +16,10 @@ const option = {
     },
     { name: 'x-chain-id', value: CHAIN_ID },
   ],
+  // headers: [
+  //   {name: 'Authorization', value: 'Basic S0FTSzlDQlAzUlhYMTM0VlIySTdDUVdHOk5CNkdVNkZtTVlJX2d3aHo2UURnSHk3MEpwNE9adnJjdmdjU0tyOWs='},
+  //   {name: 'x-chain-id', value: '8217'},
+  // ]
 }
 
 const caver = new Caver(
