@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField, Grid } from '@mui/material';
+import { Autocomplete, Box, TextField, Grid, Typography } from '@mui/material';
 // import Grid from '@mui/material/Unstable_Grid2';
 import { useState } from 'react';
 
@@ -15,6 +15,14 @@ const circle = {
   // justifyContent: 'center',
   // alignItems: 'center'
 };
+
+const boxStyle = {
+  bgcolor: '#fff',
+  mt: 2,
+  p: 2,
+  border: '1px solid #ccc',
+  borderRadius: 1,
+}
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -66,7 +74,13 @@ const Frequency = () => {
               />
             )}
           />
-          <Box>교환할 수 있는 프리퀀시</Box>
+          <Box sx={boxStyle}>
+            <Box sx={{width: '100%', height: 200, bgcolor: '#ccc'}}>
+              {/* 실제 이미지 넣을 때는 width 100%, height 100%로*/}
+            Image</Box>
+            <Typography>카페 이름</Typography>
+            <Typography>프리퀀시 교환권 #number</Typography>
+          </Box>
         </Grid>
       </Grid>
     </>
