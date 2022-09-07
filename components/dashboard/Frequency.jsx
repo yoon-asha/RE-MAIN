@@ -42,7 +42,6 @@ const Frequency = () => {
             // {Array.from(Array(10)).map((item, index) => (
             <Grid sx={circle} key={index}>
               {item}
-              {/* 임시로 지정해놓은 크기 */}
             </Grid>
           ))}
         </Grid>
@@ -67,9 +66,7 @@ const Frequency = () => {
               />
             )}
           />
-          <Box>
-            
-          </Box>
+          <Box>교환할 수 있는 프리퀀시</Box>
         </Grid>
       </Grid>
     </>
