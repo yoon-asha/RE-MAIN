@@ -1,4 +1,11 @@
-import { Autocomplete, Box, TextField, Grid, Typography } from '@mui/material';
+import {
+  Autocomplete,
+  Box,
+  TextField,
+  Grid,
+  Typography,
+  Button,
+} from '@mui/material';
 // import Grid from '@mui/material/Unstable_Grid2';
 import { useState } from 'react';
 
@@ -7,7 +14,7 @@ const circle = {
   // width: 70,
   // height: 70,
   m: 1,
-  p: {xs: 2, md: 4},
+  p: { xs: 2, md: 4 },
   border: '1px solid #ccc',
   borderRadius: '100%',
   display: 'grid',
@@ -22,7 +29,7 @@ const boxStyle = {
   p: 2,
   border: '1px solid #ccc',
   borderRadius: 1,
-}
+};
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -37,13 +44,13 @@ const Frequency = () => {
           container
           md={7}
           bgcolor='aliceblue'
-          mr={5}
           sx={{
             p: 2,
             display: 'grid',
             gridTemplateColumns: 'repeat(5, 1fr)',
             gridTemplateRows: 'repeat(2, 100px)',
             // gridTemplateRows: 'auto'
+            mr: {md: 5, xs: 0}
           }}
         >
           {data.map((item, index) => (
@@ -53,7 +60,7 @@ const Frequency = () => {
             </Grid>
           ))}
         </Grid>
-        <Grid md={4}>
+        <Grid md={3}>
           <Autocomplete
             // disablePortal
             id='store'
@@ -75,14 +82,17 @@ const Frequency = () => {
             )}
           />
           <Box sx={boxStyle}>
-            <Box sx={{width: '100%', height: 200, bgcolor: '#ccc'}}>
+            <Box sx={{ width: '100%', height: 200, bgcolor: '#ccc' }}>
               {/* 실제 이미지 넣을 때는 width 100%, height 100%로*/}
-            Image</Box>
+              Image
+            </Box>
             <Typography>카페 이름</Typography>
             <Typography>프리퀀시 교환권 #number</Typography>
           </Box>
         </Grid>
       </Grid>
+      <Button variant='contained' sx={{mt:5, 
+            mr: {lg: 19,md: 17, xs: 0},float: 'right'}}>교환권 발행하기</Button>
     </>
   );
 };

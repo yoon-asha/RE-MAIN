@@ -1,18 +1,22 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 
 const MyPage = () => {
   return (
     <>
-      <Box>
-        <Typography>보유 잔고</Typography>
-        <Typography>0000.00 KLAY</Typography>
-      </Box>
-      <Box>
-        <Typography>보유 교환권</Typography>
-      </Box>
-      <Box>
-        <Typography>거래 내역</Typography>
-      </Box>
+      <Grid container>
+        <Grid item>
+          <Box>
+            <Typography>보유 잔고</Typography>
+            <Box sx={{ bgcolor: 'aliceblue' }}> 0000.00 KLAY</Box>
+          </Box>
+          <Grid>
+            <Typography>보유 교환권</Typography>
+          </Grid>
+        </Grid>
+        <Grid>
+          <Typography>거래 내역</Typography>
+        </Grid>
+      </Grid>
     </>
   );
 };
