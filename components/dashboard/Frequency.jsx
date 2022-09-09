@@ -92,7 +92,7 @@ const Frequency = () => {
         </Grid>
       </Grid>
       <Button variant='contained' sx={{mt:5, 
-            mr: {lg: 19,md: 17, xs: 0},float: 'right'}}>교환권 발행하기</Button>
+            mr: {lg: 19,md: 17, xs: 0},float: 'right', px: 5, fontSize: '1em'}}>교환권 발행하기</Button>
     </>
   );
 };
