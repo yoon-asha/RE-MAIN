@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Button } from '@mui/material';
+import { Box, Container, Button } from '@mui/material';
 import QRCode from "qrcode.react";
 import { fetchCardsOf, getBalance, readCount, setCount } from "../pages/api/UseCaver";
 import { useState } from "react";
@@ -45,15 +45,19 @@ function Login(value) {
     bgcolor: 'background.paper',
     boxShadow: 10,
     p: 4,
-    borderRadius: 2
+    pt: 3,
+    borderRadius: 2,
+    textAlign: 'center'
   };
 
   return (
     <>
       <Box sx={style}>
-        <Typography onClick={getAddress} id='modal-modal-title' variant='h6' component='h2'>
+        <Button onClick={getAddress}
+          sx={{ fontSize: '1.2em', mb: 1 }}
+        >
           Klip 지갑 연결하기
-        </Typography>
+        </Button>
 
         <Container
           style={{
