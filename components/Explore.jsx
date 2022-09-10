@@ -1,4 +1,6 @@
-import { Box, Container, Paper, Typography } from '@mui/material';
+import { Box, Container, Paper, Typography,Modal,Button } from '@mui/material';
+import QRCode from "qrcode.react";
+import { getCookie } from '../pages/js/cookie';
 import { useEffect, useState } from "react";
 import * as KlipAPI from '../pages/api/UseKlip';
 import { fetchCardsOf } from '../pages/api/UseCaver';
@@ -6,20 +8,54 @@ import { MARKET_CONTRACT_ADDRESS } from '../pages/contract';
 import Grid from '@mui/material/Unstable_Grid2';
 import Image from 'next/image';
 
-
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  boxShadow: 10,
+  p: 4,
+  pt: 3,
+  borderRadius: 2,
+  textAlign: 'center'
+};
 
 const Explore = () => {
 
   const [nfts, setNfts] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [qrvalue,setQrvalue] = useState("DEFAULT_QR_CODE");
+  const [modalIndex,setmodalIndex] = useState();
+  const [amount,setAmount] = useState(0);
+  const [qropen,setQropen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setQropen(false);
+  };
+
 
   const FetchMarketNFTs = async () =>{
     const _nfts = await fetchCardsOf(MARKET_CONTRACT_ADDRESS);
     setNfts(_nfts);
+    console.log(nfts);
   };
 
-  const onClickCardMarketCard = (amount,tokenId) =>{
-    KlipAPI.buyCard(amount,tokenId);
+  const onClickMarketCard = (index) =>{
+    setOpen(true);
+    setmodalIndex(index);
+    setAmount(nfts[index].amount);
+  }
 
+  const buyNFT = (index) =>{
+      setQropen(true);
+      KlipAPI.buyCard(nfts[index].amount,nfts[index].id,setQrvalue,(result)=>{
+      setQropen(false);
+      setOpen(false);
+    })
   }
 
   useEffect(() =>{
@@ -48,7 +84,7 @@ const Explore = () => {
                 md={3}
                 key={index}
                 sx={{ cursor: 'pointer' }}
-                onClick = {() => {onClickCardMarketCard(nfts[index].amount,nfts[index].id)}}
+                onClick = {() => {onClickMarketCard(index)}}
                 // columnSpacing={5}
               >
                 <Paper sx={{ width: '100%', height: '100%', p: 3 }}>
@@ -70,10 +106,10 @@ const Explore = () => {
                   <Box sx={{ display: 'flex', mb: {xs: 45, sm: 25, md: 30} }}>
                     
                     {nfts[index].name.charAt(nfts[index].name.length-1) == "시" ? 
-                    <Typography mr = {1} variant='p' fontSize='0.8em'>
+                    <Typography mr = {1} variant='p' fontSize='0.65em'>
                     프리퀀시{nfts[index].id}
                     </Typography>
-                    : <Typography mr = {1} variant='p' fontSize='0.8em'>
+                    : <Typography mr = {1} variant='p' fontSize='0.65em'>
                     쿠폰{nfts[index].id}
                     </Typography>
                   }
@@ -87,8 +123,40 @@ const Explore = () => {
           </Grid>
         </Box>
       </Container>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        >
+        {getCookie('isLogin') ? 
+        <Box sx = {style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            구매하시겠습니까?
+          </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <Box>구매비용 {amount/100}Klay</Box>
+                {(!qropen) ?null:<QRCode value={qrvalue} size={256} style={{ margin: "auto" }} />}
+                <Button onClick = {()=>{buyNFT(modalIndex)}} sx = {{margin: 2}} variant="contained">Contained</Button>
+                <Button onClick = {handleClose} sx ={{margin: 2}} variant="outlined">아니요</Button>           
+            </Typography>
+        </Box>
+                 :  
+                  <Box sx = {style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    로그인
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </Typography>
+                  </Box>
+          }
+        </Modal>
+        
     </>
   );
 };
+
+            
 
 export default Explore;

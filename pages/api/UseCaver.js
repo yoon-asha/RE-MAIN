@@ -41,7 +41,6 @@ export const getBalance = (address) => {
 
 export const fetchCardsOf = async (address) => {
   const _balance = await NFTContract.methods.balanceOf(address).call();
-  console.log(_balance);
   const tokenIds =[];
   const id = await NFTContract.methods.ownerTokens(address).call();
   for (let i =0;i<_balance;i++){
@@ -53,9 +52,6 @@ export const fetchCardsOf = async (address) => {
     const uri = await NFTContract.methods.tokenURIs(tokenIds[i]).call();
     tokenURIs.push(uri);
   }
-  console.log(`${tokenIds}`);
-  console.log(`${tokenURIs}`);
-
   const tokenAmount = [];
   for (let i =0;i<_balance;i++){
     const amount = await MarketContract.methods.nftAmount(tokenIds[i]).call();
@@ -72,6 +68,5 @@ export const fetchCardsOf = async (address) => {
   for(let i =0;i<_balance;i++){
     nfts.push({uri: tokenURIs[i],id: tokenIds[i],amount:tokenAmount[i],name:CafeName[i]});
   }
-  console.log(nfts);
   return nfts;
 }
