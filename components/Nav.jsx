@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppBar, Box, Button, Toolbar, Typography, Modal } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
@@ -31,6 +31,11 @@ const Nav = () => {
       width: 'auto',
     },
   }));
+
+  // 화면 실행시 실행되는 함수
+  useEffect(() => {
+    if (getCookie('isLogin') === 'true') setIsLogin(getCookie('isLogin'));
+  }, []);
   return (
     <>
       {/* <CssBaseline /> */}
