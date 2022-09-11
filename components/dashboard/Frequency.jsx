@@ -50,7 +50,7 @@ const Frequency = () => {
             gridTemplateColumns: 'repeat(5, 1fr)',
             gridTemplateRows: 'repeat(2, 100px)',
             // gridTemplateRows: 'auto'
-            mr: {md: 5, xs: 0}
+            mr: { md: 5, xs: 0 }
           }}
         >
           {data.map((item, index) => (
@@ -77,7 +77,7 @@ const Frequency = () => {
             renderInput={(params) => (
               <TextField
                 {...params}
-                // label="Cafe"
+              // label="Cafe"
               />
             )}
           />
@@ -91,8 +91,10 @@ const Frequency = () => {
           </Box>
         </Grid>
       </Grid>
-      <Button variant='contained' sx={{mt:5, 
-            mr: {lg: 19,md: 17, xs: 0},float: 'right', px: 5, fontSize: '1em'}}>교환권 발행하기</Button>
+      <Button variant='contained' sx={{
+        mt: 5,
+        mr: { lg: 19, md: 17, xs: 0 }, float: 'right', px: 5, fontSize: '1em'
+      }}>교환권 발행하기</Button>
     </>
   );
 };

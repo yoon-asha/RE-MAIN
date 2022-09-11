@@ -53,8 +53,8 @@ function Login(value) {
   return (
     <>
       <Box sx={style}>
-        <Button onClick={getAddress} 
-        sx={{fontSize: '1.2em', mb: 1}}
+        <Button onClick={getAddress}
+          sx={{ fontSize: '1.2em', mb: 1 }}
         >
           Klip 지갑 연결하기
         </Button>
