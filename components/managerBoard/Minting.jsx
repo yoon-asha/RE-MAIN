@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Autocomplete, Box, Grid, TextField, Typography } from '@mui/material';
+import { Autocomplete, Box, Button, Grid, TextField, Typography } from '@mui/material';
 import Transaction from '../dashboard/Transaction';
 
 const typoStyle = {
@@ -66,10 +66,11 @@ const Minting = () => {
           </Box>
         </Grid>
         <Grid md={5} xs={12} sx={{ ml: { md: 5, xs: 0 } }}>
-          <Typography variant='h6' sx={typoStyle}>
-            거래 내역
-          </Typography>
-          <Transaction />
+            <Box>
+                <Typography>가맹점 명</Typography>
+                <Typography>NFT 이름</Typography>
+            </Box>
+            <Button>NFT 발행하기</Button>
         </Grid>
       </Grid>
     </>
