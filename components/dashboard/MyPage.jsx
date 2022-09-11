@@ -1,12 +1,19 @@
 import { Box, Grid, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../pages/js/cookie';
 import Possession from './Possession';
 import Transaction from './Transaction';
 
-const typoStyle = {
-  my: 1,
-};
-
 const MyPage = () => {
+  const [balance, setBalance] = useState('');
+
+  const typoStyle = {
+    my: 1,
+  };
+
+  useEffect(() => {
+    setBalance(getCookie('balance'));
+  }, []);
   return (
     <>
       <Grid container>
@@ -15,8 +22,8 @@ const MyPage = () => {
             <Typography variant='h6' sx={typoStyle}>
               보유 잔고
             </Typography>
-            <Typography sx={{ bgcolor: 'aliceblue', fontSize: '1.2em', p: 1}}>
-              0000.00 KLAY
+            <Typography sx={{ bgcolor: 'aliceblue', fontSize: '1.2em', p: 1 }}>
+              {balance} KLAY
             </Typography>
           </Box>
           <Grid>
@@ -26,7 +33,7 @@ const MyPage = () => {
             <Possession />
           </Grid>
         </Grid>
-        <Grid md={3} xs={12} sx={{ml: {md: 5, xs: 0}}}>
+        <Grid md={3} xs={12} sx={{ ml: { md: 5, xs: 0 } }}>
           <Typography variant='h6' sx={typoStyle}>
             거래 내역
           </Typography>
