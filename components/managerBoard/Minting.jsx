@@ -104,17 +104,17 @@ const Minting = () => {
               <Box
                 sx={{
                   width: '80%',
-                  height: '80%',
+                  height: '75%',
                   backgroundImage: `url(${mintImgUrl})`,
                   backgroundSize: 'contain',
                   backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
                   m: '0 auto',
-                  mb: 2,
+                  mb: 1,
                 }}
               ></Box>
             )}
-            <Typography>가맹점 명</Typography>
+            <Typography variant='h6'>{nftType.cafe}</Typography>
             <Typography>
               {nftType.label} #{nftType.id}
             </Typography>
