@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Box, Container, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
-import Mypage from '../components/dashboard/mypage';
+import Mypage from '../components/dashboard/Mypage';
 import Frequency from '../components/dashboard/Frequency';
 import Coupon from '../components/dashboard/Coupon';
 import Selling from '../components/dashboard/Selling';
