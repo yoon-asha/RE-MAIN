@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Box, Container, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
-import MyPage from '../components/dashboard/Mypage';
+import Mypage from '../components/dashboard/mypage';
 import Frequency from '../components/dashboard/Frequency';
 import Coupon from '../components/dashboard/Coupon';
 import Selling from '../components/dashboard/Selling';
@@ -64,7 +64,7 @@ const Dashboard = () => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <MyPage />
+          <Mypage />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Frequency />
