@@ -3,7 +3,7 @@ import QRCode from "qrcode.react";
 import { fetchCardsOf, getBalance, readCount, setCount } from "../pages/api/UseCaver";
 import { useState } from "react";
 import * as KlipAPI from "../pages/api/UseKlip";
-import { getCookie, setCookie } from '../pages/js/cookie';
+import { getCookie, setCookie } from '../components/js/cookie';
 
 
 const DEFAULT_QR_CODE = "DEFAULT";

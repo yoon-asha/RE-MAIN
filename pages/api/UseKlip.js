@@ -2,7 +2,7 @@ import axios from 'axios'
 import {
   NFT_CONTRACT_ADDRESS,
   MARKET_CONTRACT_ADDRESS,
-} from '../contract/contract.cypress'
+} from '../../components/contract/index'
 
 const A2P_API_PREPARE_URL = 'https://a2a-api.klipwallet.com/v2/a2a/prepare'
 const APP_NAME = 'KLAY_MARKET'

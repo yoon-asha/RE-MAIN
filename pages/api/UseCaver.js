@@ -4,11 +4,11 @@ import {
   // SECRET_ACCESS_KEY,
   // NFT_CONTRACT_ADDRESS,
   CHAIN_ID,
-} from '../contract/index';
-import { MARKET_CONTRACT_ADDRESS } from '../contract/index';
+} from '../../components/contract/index';
+import { MARKET_CONTRACT_ADDRESS } from '../../components/contract/index';
 import KIP17ABI from "../abi/RemainABI.json";
-import MARKETABI from "../abi/MarketABI.json"
-import { NFT_CONTRACT_ADDRESS } from '../contract/index';
+import MARKETABI from "../abi/MarketABI.json";
+import { NFT_CONTRACT_ADDRESS } from '../../components/contract/index';
 
 const option = {
   headers: [
