@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { getCookie } from '../../pages/js/cookie';
+import { getCookie } from '../js/cookie';
 import Possession from './Possession';
 import Transaction from './Transaction';
 

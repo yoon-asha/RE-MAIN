@@ -1,12 +1,12 @@
 import { Box, Container, Paper, Typography,Modal,Button } from '@mui/material';
 import QRCode from "qrcode.react";
-import { getCookie } from '../pages/js/cookie';
+import { getCookie } from '../components/js/cookie';
 import { useEffect, useState } from "react";
 import * as KlipAPI from '../pages/api/UseKlip';
 import { fetchCardsOf } from '../pages/api/UseCaver';
-import { MARKET_CONTRACT_ADDRESS } from '../pages/contract';
+import { MARKET_CONTRACT_ADDRESS } from '../components/contract/index';
 import Grid from '@mui/material/Unstable_Grid2';
-import Image from 'next/image';
+
 
 const style = {
   position: 'absolute',

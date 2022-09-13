@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Logo from '../public/remain.png';
 import Link from 'next/link';
 import LoginBtn from './LoginBtn';
-import { getCookie } from '../pages/js/cookie';
+import { getCookie } from '../components/js/cookie';
 
 const Nav = () => {
   const [isLogin, setIsLogin] = useState('false');

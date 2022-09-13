@@ -6,8 +6,8 @@ import {
   CHAIN_ID,
 } from '../../components/contract/index';
 import { MARKET_CONTRACT_ADDRESS } from '../../components/contract/index';
-import KIP17ABI from "../abi/RemainABI.json";
-import MARKETABI from "../abi/MarketABI.json";
+import KIP17ABI from "../../components/abi/RemainABI.json";
+import MARKETABI from '../../components/abi/MarketABI.json';
 import { NFT_CONTRACT_ADDRESS } from '../../components/contract/index';
 
 const option = {
