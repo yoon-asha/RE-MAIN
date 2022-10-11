@@ -1,4 +1,4 @@
-bbㅠbㅠ### 프로젝트 상세 설명 :
+### 프로젝트 상세 설명 :
 https://www.notion.so/RE-MAIN-6-ce4b4c22f58c409898c2e63d0e4600ba 
 ### 프로젝트 기획서 : 
 Re:Main
